@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load hitcount_tags %}
+
+{% block content %}
+  <h2>{{book.title}}</h2>
+  <div>
+        <p class="lead">{{book.description}}</p>
+        <p>Published: {{book.published}}</p>
+        <span>Views: {% get_hit_count for book %}</span>
+
+
+
+  </div>
+
+  <h3>Popular Posts</h3>
+  {% for p in popular_posts %}
+    <p>{{p.title}}</p>
+  {% endfor %}
+{% endblock %}

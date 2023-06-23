@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load hitcount_tags %}
+
+{% block content %}
+  <h2>Posts List</h2>
+  <ul>
+    {% for p in face %}
+        <h3 class="mt-5"><a href='{% url "detail" p.slug %}'>{{p.title}}</a></h3>
+        <p class="lead">{{p.description}}</p>
+        <p>{{p.published}}</p>
+        <p>Views: {% get_hit_count for p %}</p>
+
+    {% endfor %}
+  </ul>
+{% endblock %}
